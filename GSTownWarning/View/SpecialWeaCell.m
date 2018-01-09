@@ -24,19 +24,50 @@
 
 }
 - (void)setInf:(NSDictionary *)dic{
-    _titLab.text=dic[@"title"];
-    _detailLab.text=dic[@"detailed"];
+    _titLab.text=dic[@"report_type"];
+    
+    CGRect fre=_titLab.frame;
+    fre.size.width=[NSString stringWidth:dic[@"report_type"] font:16]+8;
+    
+    _titLab.frame=fre;
+    
+    _detailLab.text=dic[@"report_content"];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:MM:ss"];
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[dic[@"up_time"] doubleValue]/ 1000.0];
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[dic[@"report_time"] doubleValue]/ 1000.0];
     NSString *titleString=[dateFormatter stringFromDate:date];
-    _timlab.text=titleString;
+    _timlab.text=[NSString stringWithFormat:@"上报人:%@\n%@",dic[@"name"],titleString];
     
-    [NBRequest requestWithURL:[NSString stringWithFormat:@"%@%@",URLHOST,dic[@"img"]] type:RequestNormal success:^(NSData *requestData) {
-        [_weaImage setImage:[UIImage imageWithData:requestData]];
-    } failed:^(NSError *error) {
+    
+    NSArray  *array = [dic[@"report_filepath"] componentsSeparatedByString:@","];
+
+    for (int i=0; i<array.count; i++) {
         
-    }];
+        
+        if ([array[i] rangeOfString:@"jpg"].location !=NSNotFound||[array[i] rangeOfString:@"png"].location !=NSNotFound) {
+            
+            
+            
+            [NBRequest requestWithURL:[NSString stringWithFormat:@"%@%@",URLHOST,array[i]] type:RequestNormal success:^(NSData *requestData) {
+                [_weaImage setImage:[UIImage imageWithData:requestData]];
+                
+
+                
+            } failed:^(NSError *error) {
+                
+            }];
+            NSLog(@"%@",[NSString stringWithFormat:@"%@%@",URLHOST,array[i]]);
+            break;
+        }else{
+        
+            [_weaImage setImage:[UIImage imageNamed:@"logo.png"]];
+        
+        }
+    }
+
+    
+    
+
 }
 
 

@@ -23,12 +23,12 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eX-sq-ctR">
-                    <rect key="frame" x="10" y="24" width="37" height="30"/>
+                    <rect key="frame" x="10" y="24" width="28" height="28"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="37" id="D4u-6c-Lzt"/>
-                        <constraint firstAttribute="height" constant="30" id="dh3-aH-CLi"/>
+                        <constraint firstAttribute="width" constant="28" id="D4u-6c-Lzt"/>
+                        <constraint firstAttribute="height" constant="28" id="dh3-aH-CLi"/>
                     </constraints>
-                    <state key="normal" image="backBtn.png"/>
+                    <state key="normal" image="fh.png"/>
                     <connections>
                         <action selector="back:" destination="-1" eventType="touchUpInside" id="9ZK-wB-0z2"/>
                     </connections>
@@ -51,7 +51,7 @@
                 <constraint firstItem="FwC-NN-xWb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Iiw-Fi-tpa"/>
                 <constraint firstItem="7eX-sq-ctR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="NkD-AG-CUg"/>
                 <constraint firstItem="FwC-NN-xWb" firstAttribute="width" secondItem="FwC-NN-xWb" secondAttribute="height" multiplier="69:31" id="PH6-dc-LXT"/>
-                <constraint firstItem="JA3-7A-0Rg" firstAttribute="leading" secondItem="7eX-sq-ctR" secondAttribute="trailing" constant="30" id="Q4R-f9-Rda"/>
+                <constraint firstItem="JA3-7A-0Rg" firstAttribute="leading" secondItem="7eX-sq-ctR" secondAttribute="trailing" constant="39" id="Q4R-f9-Rda"/>
                 <constraint firstItem="JA3-7A-0Rg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="Qzm-Dn-aUc"/>
                 <constraint firstItem="7eX-sq-ctR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="TCq-U6-jgR"/>
             </constraints>
@@ -64,7 +64,7 @@
         </view>
     </objects>
     <resources>
-        <image name="backBtn.png" width="25" height="25"/>
+        <image name="fh.png" width="33" height="33"/>
         <image name="qxbk.png" width="600" height="269"/>
     </resources>
 </document>

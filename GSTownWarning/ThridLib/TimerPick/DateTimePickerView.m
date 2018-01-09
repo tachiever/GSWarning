@@ -398,7 +398,7 @@
                 break;
         }
         
-        _string =[NSString stringWithFormat:@"%ld-%.2ld-%.2ld %.2ld:%.2ld",selectedYear,selectedMonth,selectedDay,selectedHour,selectedMinute];
+        _string =[NSString stringWithFormat:@"%ld/%.2ld/%.2ld %.2ld:%.2ld",selectedYear,selectedMonth,selectedDay,selectedHour,selectedMinute];
     }else if (self.pickerViewMode == DatePickerViewDateMode){
         switch (component) {
             case 0:

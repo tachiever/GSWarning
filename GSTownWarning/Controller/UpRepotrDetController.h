@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UpRepotrDetController : UIViewController
-
+@property (nonatomic ) NSDictionary *infDic;
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface UpReportListController : UIViewController
+@property (nonatomic) NSMutableDictionary *useDic;
 
 @end

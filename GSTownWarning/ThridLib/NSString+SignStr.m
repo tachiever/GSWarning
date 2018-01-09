@@ -10,6 +10,232 @@
 
 @implementation NSString (SignStr)
 
++ (NSString *)weaIconWithWea:(NSString *)str{
+    NSString *dayIconstr;
+    if ([str isEqualToString:@"晴"]){
+        dayIconstr=@"d_qing.png";
+    }
+    else if ([str isEqualToString:@"多云"]){
+        dayIconstr=@"d_duoyun.png";
+    }
+    else if ([str isEqualToString:@"阴"]){
+        dayIconstr=@"d_yin.png";
+    }
+    else if ([str isEqualToString:@"阵雨"]){
+        dayIconstr=@"d_zhenyu";
+    }
+    else if ([str isEqualToString:@"雷阵雨"]){
+        dayIconstr=@"d_leizhenyu";
+    }
+    else if ([str isEqualToString:@"冰雹"]){
+        dayIconstr=@"d_leizhengyubanyoubingbao";
+    }
+    else if ([str isEqualToString:@"雨夹雪"]){
+        dayIconstr=@"d_yujiaxue";
+    }
+    else if ([str isEqualToString:@"阵雪"]){
+        dayIconstr=@"d_zhenxue";
+    }
+    else if ([str isEqualToString:@"雾"]){
+        dayIconstr=@"d_wu";
+    }
+    else if ([str isEqualToString:@"冻雨"]){
+        dayIconstr=@"d_dongyu";
+    }
+    else if ([str isEqualToString:@"沙尘暴"]){
+        dayIconstr=@"d_shachenbao";
+    }
+    else if ([str isEqualToString:@"小雨"]){
+        dayIconstr=@"d_xiaoyu";
+    }
+    else if ([str isEqualToString:@"中雨"]){
+        dayIconstr=@"d_xiaoyu_zhongyu";
+    }
+    else if ([str isEqualToString:@"大雨"]){
+        dayIconstr=@"d_zhongyu_dayu";
+    }
+    else if ([str isEqualToString:@"暴雨"]){
+        dayIconstr=@"d_dayu_baoyu";
+    }
+    else if ([str isEqualToString:@"大暴雨"]){
+        dayIconstr=@"d_baoyu_dabaoyu";
+    }
+    else if ([str isEqualToString:@"特大暴雨"]){
+        dayIconstr=@"d_dabaoyu_tedabaoyu";
+    }
+    else if ([str isEqualToString:@"小雪"]){
+        dayIconstr=@"d_xiaoxue";
+    }
+    else if ([str isEqualToString:@"中雪"]){
+        dayIconstr=@"d_xiaoxue_zhongxue";
+    }
+    else if ([str isEqualToString:@"大雪"]){
+        dayIconstr=@"d_zhongxue_daxue";
+    }
+    else if ([str isEqualToString:@"暴雪"]){
+        dayIconstr=@"d_daxue_baoxue";
+    }
+    else if ([str isEqualToString:@"阵雪"]){
+        dayIconstr=@"d_zhenxue";
+    }
+    else if ([str isEqualToString:@"浮尘"]){
+        dayIconstr=@"d_fuchen";
+    }
+    else if ([str isEqualToString:@"扬沙"]){
+        dayIconstr=@"d_yangsha";
+    }
+    else if ([str isEqualToString:@"强沙尘暴"]){
+        dayIconstr=@"d_qiangshachenbao";
+    }
+    else if ([str isEqualToString:@"雨"]){
+        dayIconstr=@"d_zhongyu";
+    }
+    else if ([str isEqualToString:@"雪"]){
+        dayIconstr=@"d_zhongxue";
+    }
+    else if ([str isEqualToString:@"霾"]){
+        dayIconstr=@"d_mai";
+    }
+    else{
+        dayIconstr=@"d_qing";
+    }
+    
+    return dayIconstr;
+}
+- (NSString *)dayWeatherChangeImage:(NSString *)weather{
+    
+    NSString *dayIconstr;
+    NSInteger dayIcon=[weather integerValue];
+    if (0==dayIcon){
+        dayIconstr=@"d_qing";
+    }
+    else if (1==dayIcon){
+        dayIconstr=@"d_duoyun";
+    }
+    else if (2==dayIcon){
+        dayIconstr=@"d_yin";
+        
+    }
+    else if (3==dayIcon){
+        dayIconstr=@"d_zhenyu";
+    }
+    else if (4==dayIcon){
+        dayIconstr=@"d_leizhenyu";
+    }
+    else if (5==dayIcon){
+        dayIconstr=@"d_leizhengyubanyoubingbao";
+    }
+    else if (6==dayIcon){
+        dayIconstr=@"d_yujiaxue";
+    }
+    else if (7==dayIcon){
+        dayIconstr=@"d_xiaoyu";
+    }
+    else if (8==dayIcon){
+        dayIconstr=@"d_zhongyu";
+    }
+    else if (9==dayIcon){
+        dayIconstr=@"d_dayu";
+    }
+    else if (10==dayIcon){
+        dayIconstr=@"d_baoyu";
+    }
+    else if (11==dayIcon){
+        dayIconstr=@"d_dabaoyu";
+    }
+    else if (12==dayIcon){
+        dayIconstr=@"d_tedabaoyu";
+    }
+    else if (13==dayIcon){
+        dayIconstr=@"d_zhenxue";
+    }
+    else if (14==dayIcon){
+        dayIconstr=@"d_xiaoxue";
+    }
+    else if (15==dayIcon){
+        dayIconstr=@"d_zhongxue";
+    }
+    else if (16==dayIcon){
+        dayIconstr=@"d_daxue";
+    }
+    else if (17==dayIcon){
+        dayIconstr=@"d_baoxue";
+    }
+    else if (18==dayIcon){
+        dayIconstr=@"d_wu";
+    }
+    else if (19==dayIcon){
+        dayIconstr=@"d_dongyu";
+    }
+    else if (20==dayIcon){
+        dayIconstr=@"d_shachenbao";
+    }
+    else if (21==dayIcon){
+        dayIconstr=@"d_xiaoyu_zhongyu";
+    }
+    else if (22==dayIcon){
+        dayIconstr=@"d_zhongyu_dayu";
+    }
+    else if (23==dayIcon){
+        dayIconstr=@"d_dayu_baoyu";
+    }
+    else if (24==dayIcon){
+        dayIconstr=@"d_baoyu_dabaoyu";
+    }
+    else if (25==dayIcon){
+        dayIconstr=@"d_dabaoyu_tedabaoyu";
+    }
+    else if (26==dayIcon){
+        dayIconstr=@"d_xiaoxue_zhongxue";
+    }
+    else if (27==dayIcon){
+        dayIconstr=@"d_zhongxue_daxue";
+    }
+    else if (28==dayIcon){
+        dayIconstr=@"d_daxue_baoxue";
+    }
+    else if (29==dayIcon){
+        dayIconstr=@"d_fuchen";
+    }
+    else if (30==dayIcon){
+        dayIconstr=@"d_yangsha";
+    }
+    else if (31==dayIcon){
+        dayIconstr=@"d_qiangshachenbao";
+    }
+    
+    else if (33==dayIcon){
+        dayIconstr=@"d_zhongyu";
+    }
+    else if (33==dayIcon){
+        dayIconstr=@"d_zhongxue";
+    }
+    else if (53==dayIcon){
+        dayIconstr=@"d_mai";
+    }
+    else{
+        dayIconstr=@"d_qing";
+        
+    }
+    
+    return dayIconstr;
+}
+
++(CGFloat)stringHight:(NSString *)str font:(CGFloat)font width:(CGFloat)width{
+    CGFloat h;
+    CGSize titleSize = [str boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:font]} context:nil].size;
+    h=titleSize.height;
+    return h;
+}
+
++(CGFloat)stringWidth:(NSString *)str font:(CGFloat)font{
+    CGFloat w;
+    NSDictionary *attrs = @{NSFontAttributeName:[UIFont boldSystemFontOfSize:font]};
+    CGSize size=[str sizeWithAttributes:attrs];
+    w=size.width;
+    return w;
+}
+
 +(NSString *)nowTimeStyle1{
     NSDate* dat = [NSDate dateWithTimeIntervalSinceNow:0];
     NSDateFormatter *formate=[[NSDateFormatter alloc]init];

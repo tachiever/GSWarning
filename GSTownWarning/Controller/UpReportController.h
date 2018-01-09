@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UpReportController : UIViewController
+@property (nonatomic ) NSMutableDictionary *useDic;
+
+@property (copy,nonatomic) void (^actionUploadSuccess)();
 
 @end

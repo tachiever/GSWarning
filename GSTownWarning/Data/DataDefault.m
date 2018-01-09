@@ -10,12 +10,16 @@
 
 static NSString* const kUserPhone      = @"userPhone";
 static NSString* const kappVersion      = @"appVersion";
-static NSString* const kair      = @"air";
+
+static NSString* const kpointArray      = @"pointArray";
+static NSString* const karoundArray      = @"aroundArray";
 static NSString* const krain      = @"rain";
 static NSString* const ktemp      = @"temp";
 static NSString* const kuserInfo      = @"userInfo";
+static NSString* const kphoneAndPass      = @"phoneAndPass";
 
 static NSString* const kBgImage      = @"bgImage";
+static NSString* const kRead      = @"kRead";
 
 
 @implementation DataDefault
@@ -34,6 +38,15 @@ static NSString* const kBgImage      = @"bgImage";
 
 -(void) setUserInfor:(NSMutableDictionary *)userInfor {
     [[DataDefault defaults] setObject:userInfor forKey:kuserInfo];
+    [[DataDefault defaults] synchronize];
+}
+
+- (NSMutableDictionary*) phoneAndPass {
+    return [[DataDefault defaults] objectForKey:kphoneAndPass];
+}
+
+-(void) setPhoneAndPass:(NSMutableDictionary *)phoneAndPass {
+    [[DataDefault defaults] setObject:phoneAndPass forKey:kphoneAndPass];
     [[DataDefault defaults] synchronize];
 }
 
@@ -65,19 +78,41 @@ static NSString* const kBgImage      = @"bgImage";
     [[DataDefault defaults] synchronize];
 }
 
-- (NSMutableArray*) airInformArray {
-    return [[DataDefault defaults] objectForKey:kair];
+
+- (NSMutableArray*) pointArray {
+    return [[DataDefault defaults] objectForKey:kpointArray];
 }
 
--(void) setAirInformArray:(NSMutableArray *)airInformArray{
-    [[DataDefault defaults] setObject:airInformArray forKey:kair];
+-(void) setPointArray:(NSMutableArray *)pointArray{
+    [[DataDefault defaults] setObject:pointArray forKey:kpointArray];
     [[DataDefault defaults] synchronize];
 }
+
+
+- (NSMutableArray*) readIdArr {
+    return [[DataDefault defaults] objectForKey:kRead];
+}
+
+-(void) setReadIdArr:(NSMutableArray *)readIdArr{
+    [[DataDefault defaults] setObject:readIdArr forKey:kRead];
+    [[DataDefault defaults] synchronize];
+}
+
+
+
+- (NSMutableArray*) aroundArray {
+    return [[DataDefault defaults] objectForKey:karoundArray];
+}
+-(void) setAroundArray:(NSMutableArray *)aroundArray{
+    [[DataDefault defaults] setObject:aroundArray forKey:karoundArray];
+    [[DataDefault defaults] synchronize];
+}
+
+
 
 - (NSMutableArray*) rainInformArray {
     return [[DataDefault defaults] objectForKey:krain];
 }
-
 -(void) setRainInformArray:(NSMutableArray *)rainInformArray{
     [[DataDefault defaults] setObject:rainInformArray forKey:krain];
     [[DataDefault defaults] synchronize];

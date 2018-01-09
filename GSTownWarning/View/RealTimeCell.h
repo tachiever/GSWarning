@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface RealTimeCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *numLab;
+@property (weak, nonatomic) IBOutlet UILabel *couLab;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLan;
+
 
 @end

@@ -9,37 +9,31 @@
 #ifndef NetworkInterface_h
 #define NetworkInterface_h
 
-#define URLHOST @"http://219.144.95.133:8082/auther"
+
+#define DDLOG(...) printf("%s\n",[[NSString stringWithFormat:__VA_ARGS__]UTF8String]);
+
+//#define URLHOST @"http://192.168.1.52:8080/dfecw"
+#define URLHOST @"http://gsqx.com:6081/dfecw"
 
 #define baikeUrl @"http://wapbaike.baidu.com/item/%@"
 
-#define RealWeather @"http://219.144.95.133:8082/auther/real?"
+#define RealWeather @"http://219.144.95.133:8082/dfecw/real?"
+#define WeaForCast @"http://219.144.95.133:8082/dfecw/forcast?"
 
-#define WeaForCast @"http://219.144.95.133:8082/auther/forcast?"
+#define UploadDataSX @"http://219.144.95.133:8082/dfecw/upload"
 
-#define Warn @"http://219.144.95.133:8082/auther/warn?"
 
-#define UserLoginAngRige @"http://219.144.95.133:8082/auther/us"
+#define LoginUrl [URLHOST stringByAppendingFormat:@"/gus"]
+#define CheckUrl [URLHOST stringByAppendingFormat:@"/stnam?"]
+#define TemAndFall [URLHOST stringByAppendingFormat:@"/live"]
+#define UploadData [URLHOST stringByAppendingFormat:@"/uploadgs"]
+#define Weather [URLHOST stringByAppendingFormat:@"/pred"]
 
-#define ContainPerson @"http://219.144.95.133:8082/auther/ors"
+#define WarnUrl [URLHOST stringByAppendingFormat:@"/warngs"]
 
-#define Notice @"http://219.144.95.133:8082/auther/n_s_s"
+#define QiXiangBK @"http://219.144.95.133:8082/dfecw/wns"
+#define Service @"http://219.144.95.133:8082/dfecw/sps"
 
-#define Service @"http://219.144.95.133:8082/auther/sps"
-
-#define SpecialWea @"http://219.144.95.133:8082/auther/sws"
-
-#define UploadData @"http://219.144.95.133:8082/auther/upload"
-
-#define Temputer @"http://219.144.95.133:8082/auther/temp?"
-
-#define JieQi @"http://219.144.95.133:8082/auther/fa"
-
-#define ChongZai @"http://219.144.95.133:8082/auther/fds"
-
-#define LifeSign @"http://219.144.95.133:8082/auther/la"
-
-#define BgImage @"http://219.144.95.133:8082/auther/bjimg/bj%d.jpg"
-#define QiXiangBK @"http://219.144.95.133:8082/auther/wns"
+#define BgImage @"http://219.144.95.133:8082/dfecw/bjimg/bj%d.jpg"
 
 #endif /* NetworkInterface_h */

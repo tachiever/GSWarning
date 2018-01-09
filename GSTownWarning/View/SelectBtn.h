@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SelectBtn : UIView
-
+@property (copy,nonatomic) void (^selectBtn)(NSInteger tag);
+- (void)createWith:(NSString *)ImageName name:(NSString *)name;
 @end

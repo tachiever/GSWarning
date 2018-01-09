@@ -12,7 +12,7 @@
 
     UIImageView *_weaIcon;
     UILabel *_weaLab;
-    UIView *_pressView;
+   // UIView *_pressView;
     UILabel *_valLab;
 }
 
@@ -43,14 +43,14 @@
     _weaLab.textColor=[UIColor whiteColor];
     [self addSubview:_weaLab];
     
-    _pressView=[[UIView alloc]initWithFrame:CGRectMake((self.frame.size.width-10)/2, self.frame.size.height-30-20, 10, 10)];
-    _pressView.layer.masksToBounds=YES;
-    _pressView.layer.cornerRadius=5;
-    _pressView.backgroundColor=RGBACOLOR(244, 244, 244, 0.9);
-    [self addSubview:_pressView];
+//    _pressView=[[UIView alloc]initWithFrame:CGRectMake((self.frame.size.width-10)/2, self.frame.size.height-30-20, 10, 10)];
+//    _pressView.layer.masksToBounds=YES;
+//    _pressView.layer.cornerRadius=5;
+//    _pressView.backgroundColor=RGBACOLOR(244, 244, 244, 0.9);
+//    [self addSubview:_pressView];
     
     
-    _valLab=[[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height-35, self.frame.size.width, 20)];
+    _valLab=[[UILabel alloc]initWithFrame:CGRectMake(0, self.frame.size.height-22, self.frame.size.width, 20)];
    // _valLab.backgroundColor=[UIColor greenColor];
     _valLab.textAlignment=NSTextAlignmentCenter;
     _valLab.text =@"100.0";
@@ -62,18 +62,18 @@
 
 - (void)updateWithWeather:(NSString *)weather fall:(CGFloat )fall fallNum:(NSString *)fallnum{
     
-    [_weaIcon setImage:[UIImage imageNamed:[self dayWeatherChangeImage:weather]]];
-    [_weaLab setText:[self WeatherWithStr:weather]];
+    [_weaIcon setImage:[UIImage imageNamed:[NSString weaIconWithWea:weather]]];
+    [_weaLab setText:weather];
     [_valLab setText:[NSString stringWithFormat:@"%@",fallnum]];
-    CGRect fra=CGRectMake((self.frame.size.width-10)/2, self.frame.size.height-50-(self.frame.size.height-110)*fall, 10, 10+((self.frame.size.height-110)*fall));
+//    CGRect fra=CGRectMake((self.frame.size.width-10)/2, self.frame.size.height-50-(self.frame.size.height-110)*fall, 10, 10+((self.frame.size.height-110)*fall));
     
-    [UIView animateWithDuration:0.5 animations:^{
-        _pressView.frame=fra;
-        
-    }completion:^(BOOL finished) {
-        
-        
-    }];
+//    [UIView animateWithDuration:0.5 animations:^{
+//          _pressView.frame=fra;
+//
+//    }completion:^(BOOL finished) {
+//
+//
+//    }];
 }
 
 - (NSString *)dayWeatherChangeImage:(NSString *)weather{

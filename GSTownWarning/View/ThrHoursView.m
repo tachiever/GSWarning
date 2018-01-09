@@ -27,8 +27,8 @@
         _weaArray=[[NSMutableArray alloc]init];
         _fallArray=[[NSMutableArray alloc]init];
         
-        NSArray *falarr=@[@"20",@"10",@"10",@"10",@10,@"10",@10,@"10",@"10",@"10",@"10",@10,@"10",@10,@"10",@"0"];
-        NSArray *arr=@[@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴"];
+        NSArray *falarr=@[@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风",@"西风"];
+        NSArray *arr=@[@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴"];
         
         [_weaArray addObjectsFromArray:arr];
         [_fallArray addObjectsFromArray:falarr];
@@ -40,11 +40,11 @@
 - (void)drawRect:(CGRect)rect{
     _preW=self.frame.size.width/_weaArray.count;
     
-    NSNumber *max = [_fallArray valueForKeyPath:@"@max.floatValue"];
-    CGFloat hig=([max floatValue]==0)?1:[max floatValue];
+    //NSNumber *max = [_fallArray valueForKeyPath:@"@max.floatValue"];
+   // CGFloat hig=([max floatValue]==0)?1:[max floatValue];
     for (int i=0; i<_weaArray.count; i++) {
         WeaAndPressView *wpv = [[WeaAndPressView alloc] initWithFrame:CGRectMake(_preW*i, 0, _preW, self.frame.size.height)];
-        [wpv updateWithWeather:[NSString stringWithFormat:@"%@",_weaArray[i]] fall:([_fallArray[i] floatValue]/hig) fallNum:[NSString stringWithFormat:@"%.1f",[_fallArray[i] floatValue]]];
+        [wpv updateWithWeather:[NSString stringWithFormat:@"%@",_weaArray[i]] fall:0 fallNum:[NSString stringWithFormat:@"%@",_fallArray[i] ]];
         [self addSubview:wpv];
 
     }

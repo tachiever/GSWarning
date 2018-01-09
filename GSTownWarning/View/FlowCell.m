@@ -12,9 +12,26 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    [self stup];
 }
 
+- (void)setIconimageWith:(NSInteger)inte{
+
+    [_iconImage setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png",inte+1]]];
+
+
+}
+
+- (void)stup{
+    
+    _bgVie.layer.masksToBounds=NO;
+    _bgVie.layer.cornerRadius=6;
+    _bgVie.layer.shadowColor=[UIColor grayColor].CGColor;
+    _bgVie.layer.shadowOffset=CGSizeMake(0, 0);
+    _bgVie.layer.shadowOpacity=0.7;
+    _bgVie.layer.shadowRadius=2.f;
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

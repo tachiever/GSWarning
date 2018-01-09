@@ -24,9 +24,12 @@
 @property(nonatomic) NSString *appVersion;
 @property(nonatomic) NSData *bgImage;
 @property(nonatomic) NSMutableDictionary *userInfor;
-@property(nonatomic) NSMutableArray *airInformArray;
+@property(nonatomic) NSMutableDictionary *phoneAndPass;
+@property(nonatomic) NSMutableArray *pointArray;
+@property(nonatomic) NSMutableArray *aroundArray;
 @property(nonatomic) NSMutableArray *rainInformArray;
 @property(nonatomic) NSMutableArray *tempInformArray;
+@property(nonatomic) NSMutableArray *readIdArr;
 
 
 @end

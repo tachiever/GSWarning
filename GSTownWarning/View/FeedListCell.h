@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface FeedListCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *iconImage;
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UILabel *disLab;
 
+@property (weak, nonatomic) IBOutlet UILabel *titLab;
+@property (weak, nonatomic) IBOutlet UILabel *ditLab;
 @end

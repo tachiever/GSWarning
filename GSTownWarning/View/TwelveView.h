@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TwelveView : UIView
-- (void)updateWithArr:(NSMutableArray *)datArr tim:(NSMutableArray *)timArr
-                  tem:(NSMutableArray *)temArr;
+- (void)updateWithArr:(NSMutableArray *)datArr tim:(NSMutableArray *)timArr tem1:(NSMutableArray *)tem1Arr tem:(NSMutableArray *)temArr imageArr:(NSMutableArray *)imageArr;
 @end

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface PersonalController : UIViewController
+@property (copy,nonatomic) void (^actionchangeSuccess)(NSMutableDictionary *useInf);
 
 @end

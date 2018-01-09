@@ -56,9 +56,9 @@
     [dict setObject:@"baike" forKey:@"m"];
     [dict setObject:[NSString stringWithFormat:@"%ld",(long)_page] forKey:@"page"];
     [dict setObject:@"10" forKey:@"size"];
-        [dict setObject:[NSString timeStr] forKey:@"time"];
-        [dict setObject:[[DataDefault shareInstance]userInfor][@"token"] forKey:@"token"];
-        [dict setObject:[NSString signStrWithToken:[[DataDefault shareInstance]userInfor][@"token"] tim:[NSString timeStr]] forKey:@"sign"];
+//        [dict setObject:[NSString timeStr] forKey:@"time"];
+//        [dict setObject:[[DataDefault shareInstance]userInfor][@"token"] forKey:@"token"];
+//        [dict setObject:[NSString signStrWithToken:[[DataDefault shareInstance]userInfor][@"token"] tim:[NSString timeStr]] forKey:@"sign"];
 
     AFHTTPRequestOperationManager *manger = [AFHTTPRequestOperationManager manager];
     manger.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -71,8 +71,8 @@
         }
         NSArray *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
         
-       // NSLog(@"---%@",dic);
-        if ([dic[0][@"code"] isEqualToString:@"20000"]) {
+        NSLog(@"---%@",dic);
+        if ([dic[0][@"code"] integerValue]==20000) {
             NSArray *arr=dic[1];
             for (NSDictionary *dicti in arr) {
                 [_dataArray addObject:dicti];

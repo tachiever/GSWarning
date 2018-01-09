@@ -6,7 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AtmoDetailController">
             <connections>
-                <outlet property="titLab" destination="zEq-d0-R9b" id="uj4-Nh-GE7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,57 +14,57 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="tP3-7e-4j0">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAd-yZ-aOQ">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Cg-NG-PWH">
+                            <rect key="frame" x="14" y="23" width="28" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="JfR-yd-bVC"/>
+                                <constraint firstAttribute="width" constant="28" id="Qdr-bw-9sW"/>
+                            </constraints>
+                            <state key="normal" image="fh.png"/>
+                            <connections>
+                                <action selector="back:" destination="-1" eventType="touchUpInside" id="OTa-ZR-Fwc"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKc-C2-HM2">
+                            <rect key="frame" x="137" y="20" width="141" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="141" id="WDJ-lu-zc4"/>
+                                <constraint firstAttribute="height" constant="30" id="mcd-6b-M1e"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.12438475340000001" green="0.56588232520000004" blue="0.98492604490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="b36-hS-da6"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="KbO-sa-GNg"/>
+                        <constraint firstItem="mKc-C2-HM2" firstAttribute="top" secondItem="qAd-yZ-aOQ" secondAttribute="top" constant="20" id="LnM-79-Ylz"/>
+                        <constraint firstItem="mKc-C2-HM2" firstAttribute="centerX" secondItem="qAd-yZ-aOQ" secondAttribute="centerX" id="MjW-ht-roy"/>
+                        <constraint firstItem="7Cg-NG-PWH" firstAttribute="top" secondItem="qAd-yZ-aOQ" secondAttribute="top" constant="23" id="Pl0-Rq-ZrJ"/>
+                        <constraint firstAttribute="height" constant="64" id="aMm-gz-HvS"/>
+                        <constraint firstItem="7Cg-NG-PWH" firstAttribute="leading" secondItem="qAd-yZ-aOQ" secondAttribute="leading" constant="14" id="jR7-3f-IAM"/>
                     </constraints>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="气象服务详情" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-d0-R9b">
-                    <rect key="frame" x="101" y="24" width="213" height="26"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="213" id="nYW-qG-Xcd"/>
-                        <constraint firstAttribute="height" constant="26" id="sUq-Zm-W7Y"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <color key="textColor" red="0.98322493649999998" green="0.98322493649999998" blue="0.98322493649999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aj9-W3-LmP">
-                    <rect key="frame" x="10" y="24" width="37" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="37" id="7PT-xm-WJV"/>
-                        <constraint firstAttribute="width" constant="37" id="rfL-W4-UDR"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="sNR-kF-qE9"/>
-                        <constraint firstAttribute="height" constant="30" id="voZ-zo-pxd"/>
-                    </constraints>
-                    <state key="normal" image="backBtn.png"/>
                     <variation key="default">
                         <mask key="constraints">
-                            <exclude reference="7PT-xm-WJV"/>
-                            <exclude reference="sNR-kF-qE9"/>
+                            <exclude reference="KbO-sa-GNg"/>
                         </mask>
                     </variation>
-                    <connections>
-                        <action selector="back:" destination="-1" eventType="touchUpInside" id="OMm-eX-JAZ"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="zEq-d0-R9b" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CY6-bF-6Aw"/>
-                <constraint firstAttribute="trailing" secondItem="tP3-7e-4j0" secondAttribute="trailing" id="GEs-Pc-LYM"/>
-                <constraint firstItem="tP3-7e-4j0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bx0-y6-krW"/>
-                <constraint firstItem="zEq-d0-R9b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="dGu-ak-P5m"/>
-                <constraint firstItem="tP3-7e-4j0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dmR-5K-7z1"/>
-                <constraint firstItem="aj9-W3-LmP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="goA-Gr-U9G"/>
-                <constraint firstItem="aj9-W3-LmP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="xgw-O4-b78"/>
+                <constraint firstItem="qAd-yZ-aOQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ckJ-Tz-I0S"/>
+                <constraint firstItem="qAd-yZ-aOQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gbC-WN-F0J"/>
+                <constraint firstAttribute="trailing" secondItem="qAd-yZ-aOQ" secondAttribute="trailing" id="z0m-SB-u41"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
-        <image name="backBtn.png" width="25" height="25"/>
-        <image name="headerBg.png" width="600" height="82"/>
+        <image name="fh.png" width="33" height="33"/>
     </resources>
 </document>

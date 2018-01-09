@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DingzhiView : UIView
+- (void)updateWithArr:(NSMutableArray *)titArr;
+@property (nonatomic ) NSInteger model;
+@property (copy,nonatomic) void (^actionCloseView)(NSInteger tag);
 
 @end

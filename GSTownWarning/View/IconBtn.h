@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface IconBtn : UIView
+@property (nonatomic ) UILabel *titLab;
+@property (nonatomic ) UIButton * closeBtn;
 
+
+@property (copy,nonatomic) void (^actionClose)(NSInteger tag);
 @end

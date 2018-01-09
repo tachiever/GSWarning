@@ -80,7 +80,7 @@
     [manger.requestSerializer setValue:@"www.dfec.com" forHTTPHeaderField:@"Host"];
     [manger POST:QiXiangBK parameters:dict success:^(AFHTTPRequestOperation * operation, id responseObject) {
         NSArray *dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-        if ([dic[0][@"code"] isEqualToString:@"20000"]) {
+        if ([dic[0][@"code"] integerValue]==20000) {
             NSArray *arr=dic[1];
             [webView loadHTMLString:[NSString stringWithFormat:@"%@",arr[0][@"description"]] baseURL:nil];
         }else{

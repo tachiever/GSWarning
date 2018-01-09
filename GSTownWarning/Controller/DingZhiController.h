@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DingZhiController : UIViewController
+@property (nonatomic ) NSString *type;
+@property (nonatomic ) NSMutableArray *pointArray;
+@property (copy,nonatomic) void (^actionSelectPoint)(NSMutableArray *pointArray);
 
 @end

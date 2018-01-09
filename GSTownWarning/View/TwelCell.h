@@ -10,9 +10,10 @@
 
 @interface TwelCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIView *bgImage;
-@property (weak, nonatomic) IBOutlet UIImageView *weaIcon;
+//@property (weak, nonatomic) IBOutlet UIImageView *weaIcon;
 @property (weak, nonatomic) IBOutlet UILabel *timLab;
 @property (weak, nonatomic) IBOutlet UILabel *temLab;
+@property (weak, nonatomic) IBOutlet UILabel *tem1Lab;
 @property (weak, nonatomic) IBOutlet UILabel *weaLab;
 @property (weak, nonatomic) IBOutlet UIImageView *weaImage;
 

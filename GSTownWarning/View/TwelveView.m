@@ -16,7 +16,9 @@
     UICollectionView *collection;
     NSMutableArray *_dataArray;
     NSMutableArray *_temArray;
+    NSMutableArray *_tem1Array;
     NSMutableArray *_timArray;
+    NSMutableArray *_imageArray;
     NSInteger inte;
 }
 
@@ -27,14 +29,19 @@
     self = [super initWithFrame:frame];
     if (self) {
         // 初始化设置
+        _imageArray=[[NSMutableArray alloc]init];
         _dataArray=[[NSMutableArray alloc]init];
         _temArray=[[NSMutableArray alloc]init];
+        _tem1Array=[[NSMutableArray alloc]init];
         _timArray=[[NSMutableArray alloc]init];
         NSArray *falarr=@[@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴",@"晴 "];
         NSArray *tem=@[@"10",@"10",@"10",@"10",@"10",@"10",@"10",@"10",];
         NSArray *timarr=@[@"0/0 00:00",@"0/0 00:00",@"0/0 00:00",@"0/0 00:00",@"0/0 00:00",@"0/0 00:00",@"0/0 00:00",@"0/0 00:00"];
+
+        [_imageArray addObjectsFromArray:falarr];
         [_dataArray addObjectsFromArray:falarr];
         [_temArray addObjectsFromArray:tem];
+        [_tem1Array addObjectsFromArray:tem];
         [_timArray addObjectsFromArray:timarr];
         inte=2;
         [self setup];
@@ -50,8 +57,8 @@
     [self addSubview:hBg];
     
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 30)];
-    label.text =@"12小时天气预报";
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 150, 30)];
+    label.text =@"七天天气预报";
     label.font = [UIFont systemFontOfSize:14];
     label.textColor=[UIColor whiteColor];
     [hBg addSubview:label];
@@ -109,16 +116,11 @@
             cell.bgImage.layer.borderColor=RGBACOLOR(120, 120, 120, 0.8).CGColor;
         }
         
-        cell.weaLab.text=[self WeatherWithStr:_dataArray[indexPath.item-2]];
-        cell.temLab.text=[NSString stringWithFormat:@"%@℃",_temArray[indexPath.item-2]];
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM/dd HH:00"];
-        NSTimeInterval interval = 60 * 60 * [_timArray[indexPath.item-2] integerValue];
-        NSString *titleString = [dateFormatter stringFromDate:[[NSDate date] initWithTimeInterval:interval sinceDate:[NSDate date]]];
-        
-        cell.timLab.text=[NSString stringWithFormat:@"%@",titleString];
-        [cell.weaIcon setImage:[UIImage imageNamed:[self dayWeatherChangeImage:_dataArray[indexPath.item-2]]]];
+        cell.weaLab.text=[NSString stringWithFormat:@"%@",_dataArray[indexPath.item-2]];
+        cell.temLab.text=[NSString stringWithFormat:@"%@℃",_temArray[indexPath.item-2] ];
+        cell.tem1Lab.text=[NSString stringWithFormat:@"%@℃",_tem1Array[indexPath.item-2]];
+        cell.timLab.text=[NSString stringWithFormat:@"%@",_timArray[indexPath.item-2]];
+        [cell.weaImage setImage:[UIImage imageNamed:[NSString weaIconWithWea:_imageArray[indexPath.item-2]]]];
         return cell;
     }
 }
@@ -126,7 +128,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     CGPoint point=scrollView.contentOffset;
     //NSLog(@"=====                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              %f,%f",point.x,point.y);
-    inte=2+(point.x-1)/86;
+    inte=2+(point.x-1)/88;
     [collection reloadData];
     
 }
@@ -145,18 +147,117 @@
 
 }
 
-- (void)updateWithArr:(NSMutableArray *)datArr tim:(NSMutableArray *)timArr
-                  tem:(NSMutableArray *)temArr{
+- (void)updateWithArr:(NSMutableArray *)datArr tim:(NSMutableArray *)timArr tem1:(NSMutableArray *)tem1Arr tem:(NSMutableArray *)temArr imageArr:(NSMutableArray *)imageArr{
 
     [_dataArray removeAllObjects];
     [_temArray removeAllObjects];
     [_timArray removeAllObjects];
+    [_tem1Array removeAllObjects];
+    [_imageArray removeAllObjects];
     
+    
+
+    _imageArray=[imageArr mutableCopy];
     _dataArray=[datArr mutableCopy];
     _timArray=[timArr mutableCopy];
     _temArray=[temArr mutableCopy];
+    _tem1Array=[tem1Arr mutableCopy];
+   // NSLog(@"sosos%@%@",_temArray,imageArr[0]);
 
     [collection reloadData];
+}
+
+- (NSString *)weaIconWithWea:(NSString *)str{
+    NSString *dayIconstr;
+    if ([str isEqualToString:@"晴"]){
+        dayIconstr=@"d_qing";
+    }
+    else if ([str isEqualToString:@"多云"]){
+        dayIconstr=@"d_duoyun";
+    }
+    else if ([str isEqualToString:@"阴"]){
+        dayIconstr=@"d_yin";
+    }
+    else if ([str isEqualToString:@"阵雨"]){
+        dayIconstr=@"d_zhenyu";
+    }
+    else if ([str isEqualToString:@"雷阵雨"]){
+        dayIconstr=@"d_leizhenyu";
+    }
+    else if ([str isEqualToString:@"冰雹"]){
+        dayIconstr=@"d_leizhengyubanyoubingbao";
+    }
+    else if ([str isEqualToString:@"雨夹雪"]){
+        dayIconstr=@"d_yujiaxue";
+    }
+    else if ([str isEqualToString:@"阵雪"]){
+        dayIconstr=@"d_zhenxue";
+    }
+    else if ([str isEqualToString:@"雾"]){
+        dayIconstr=@"d_wu";
+    }
+    else if ([str isEqualToString:@"冻雨"]){
+        dayIconstr=@"d_dongyu";
+    }
+    else if ([str isEqualToString:@"沙尘暴"]){
+        dayIconstr=@"d_shachenbao";
+    }
+    else if ([str isEqualToString:@"小雨"]){
+        dayIconstr=@"d_xiaoyu";
+    }
+    else if ([str isEqualToString:@"中雨"]){
+        dayIconstr=@"d_xiaoyu_zhongyu";
+    }
+    else if ([str isEqualToString:@"大雨"]){
+        dayIconstr=@"d_zhongyu_dayu";
+    }
+    else if ([str isEqualToString:@"暴雨"]){
+        dayIconstr=@"d_dayu_baoyu";
+    }
+    else if ([str isEqualToString:@"大暴雨"]){
+        dayIconstr=@"d_baoyu_dabaoyu";
+    }
+    else if ([str isEqualToString:@"特大暴雨"]){
+        dayIconstr=@"d_dabaoyu_tedabaoyu";
+    }
+    else if ([str isEqualToString:@"小雪"]){
+        dayIconstr=@"d_xiaoxue";
+    }
+    else if ([str isEqualToString:@"中雪"]){
+        dayIconstr=@"d_xiaoxue_zhongxue";
+    }
+    else if ([str isEqualToString:@"大雪"]){
+        dayIconstr=@"d_zhongxue_daxue";
+    }
+    else if ([str isEqualToString:@"暴雪"]){
+        dayIconstr=@"d_daxue_baoxue";
+    }
+    else if ([str isEqualToString:@"阵雪"]){
+        dayIconstr=@"d_zhenxue";
+    }
+    else if ([str isEqualToString:@"浮尘"]){
+        dayIconstr=@"d_fuchen";
+    }
+    else if ([str isEqualToString:@"扬沙"]){
+        dayIconstr=@"d_yangsha";
+    }
+    else if ([str isEqualToString:@"强沙尘暴"]){
+        dayIconstr=@"d_qiangshachenbao";
+    }
+    else if ([str isEqualToString:@"雨"]){
+        dayIconstr=@"d_zhongyu";
+    }
+    else if ([str isEqualToString:@"雪"]){
+        dayIconstr=@"d_zhongxue";
+    }
+    else if ([str isEqualToString:@"霾"]){
+        dayIconstr=@"d_mai";
+    }
+    else{
+        dayIconstr=@"d_qing";
+    }
+    
+    return dayIconstr;
 }
 - (NSString *)dayWeatherChangeImage:(NSString *)weather{
     

@@ -12,7 +12,20 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+
+    [self stup];
+}
+
+
+- (void)stup{
+    
+    _bgView.layer.masksToBounds=NO;
+    _bgView.layer.cornerRadius=6;
+    _bgView.layer.shadowColor=[UIColor grayColor].CGColor;
+    _bgView.layer.shadowOffset=CGSizeMake(0, 0);
+    _bgView.layer.shadowOpacity=0.7;
+    _bgView.layer.shadowRadius=2.f;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

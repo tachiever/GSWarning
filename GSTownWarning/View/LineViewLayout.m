@@ -9,8 +9,8 @@
 #import "LineViewLayout.h"
 
 //Item的大小
-#define ITEM_Width 56.0
-#define ITEM_Height 84.0
+#define ITEM_Width 60.0
+#define ITEM_Height 88.0
 
 //放大的有效范围(离中线的距离)
 #define ACTIVE_DISTANCE 160

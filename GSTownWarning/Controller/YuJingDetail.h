@@ -10,4 +10,12 @@
 
 @interface YuJingDetail : UIViewController
 
+
+@property (nonatomic ) NSDictionary *dic;
+@property (nonatomic ) NSMutableDictionary *userDic;
+@property (nonatomic ) NSString *detKin;
+@property (nonatomic ) NSString *detId;
+
+@property (copy,nonatomic) void (^readInform)();
+
 @end

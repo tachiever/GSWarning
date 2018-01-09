@@ -38,8 +38,8 @@
     [self addSubview:hBg];
     
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 30)];
-    label.text =@"3小时预报";
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 120, 30)];
+    label.text =@"逐小时预报";
     label.font = [UIFont systemFontOfSize:14];
     label.textColor=[UIColor whiteColor];
     [hBg addSubview:label];
@@ -47,7 +47,7 @@
     
     UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width-210, 0, 200, 30)];
     lab.textAlignment=NSTextAlignmentRight;
-    lab.text =@"温度:℃ 降水:mm";
+    lab.text =@"温度:℃ ";
     lab.font = [UIFont systemFontOfSize:13];
     lab.textColor=[UIColor whiteColor];
     [hBg addSubview:lab];
@@ -70,15 +70,15 @@
     _scrollerView.showsHorizontalScrollIndicator =NO; //垂直方向的滚动指示
     _scrollerView.bounces = YES;
     _scrollerView.delegate = self;
-    _scrollerView.contentSize = CGSizeMake(1000,0);
+    _scrollerView.contentSize = CGSizeMake(1800,0);
     [bBg addSubview:_scrollerView];
     bBg.userInteractionEnabled=YES;
     
-    temChar=[[CharView alloc]initWithFrame:CGRectMake(0, 0, 1000, 90)];
+    temChar=[[CharView alloc]initWithFrame:CGRectMake(0, 0, 1800, 90)];
     temChar.backgroundColor=[UIColor clearColor];
     [_scrollerView addSubview:temChar];
     
-    weaView=[[ThrHoursView alloc]initWithFrame:CGRectMake(0, 100, 1000, self.frame.size.height-32-100)];
+    weaView=[[ThrHoursView alloc]initWithFrame:CGRectMake(0, 100, 1800, 80)];
     weaView.backgroundColor=[UIColor clearColor];
     [_scrollerView addSubview:weaView];
 

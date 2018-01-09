@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreWarnSViewController : UIViewController
+@property (nonatomic ) NSMutableDictionary *userInf;
 
 @end

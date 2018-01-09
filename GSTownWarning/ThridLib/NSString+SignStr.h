@@ -15,5 +15,7 @@
 +(NSString *)nowTimeStyle2;
 +(NSString *)timeStr;
 +(NSString *)signStrWithToken:(NSString *)str tim:(NSString *)tim;
-
++(CGFloat)stringWidth:(NSString *)str font:(CGFloat)font;
++(CGFloat)stringHight:(NSString *)str font:(CGFloat)font width:(CGFloat)width;
++ (NSString *)weaIconWithWea:(NSString *)str;
 @end

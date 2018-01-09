@@ -27,8 +27,8 @@
         _dataArray=[[NSMutableArray alloc]init];
         _timArray=[[NSMutableArray alloc]init];
         
-        NSArray *arr=@[@"20",@"10",@"10",@"10",@10,@"10",@10,@"10",@"10",@"10",@"10",@10,@"10",@10,@"10",@"10"];
-        NSArray *timarr=@[@"0:00",@"3:00",@"6:00",@"9:00",@"12:00",@"15:00",@"18:00",@"21:00",@"0:00",@"3:00",@"6:00",@"9:00",@"12:00",@"15:00",@"18:00",@"21:00"];
+        NSArray *arr=@[@"20",@"10",@"10",@"10",@10,@"10",@10,@"10",@"10",@"10",@"10",@10,@"10",@10,@"10",@"10",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23"];
+        NSArray *timarr=@[@"08",@"09",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23"];
 
         [_dataArray addObjectsFromArray:arr];
         [_timArray addObjectsFromArray:timarr];
@@ -77,13 +77,13 @@
         
         
         
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"HH:00"];
+//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//        [dateFormatter setDateFormat:@"HH:00"];
+//
+//        NSTimeInterval interval = 60 * 60 * [_timArray[i] integerValue];
+//        NSString *titleString = [dateFormatter stringFromDate:[[NSDate date] initWithTimeInterval:interval sinceDate:[NSDate date]]];
         
-        NSTimeInterval interval = 60 * 60 * [_timArray[i] integerValue];
-        NSString *titleString = [dateFormatter stringFromDate:[[NSDate date] initWithTimeInterval:interval sinceDate:[NSDate date]]];
-        
-        lab1.text =[NSString stringWithFormat:@"%@",titleString];
+        lab1.text =[NSString stringWithFormat:@"%@:00",_timArray[i]];
         lab1.font = [UIFont systemFontOfSize:13];
         lab1.textColor=[UIColor whiteColor];
         [self addSubview:lab1];

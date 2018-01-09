@@ -10,4 +10,8 @@
 
 @interface ScaneImage : UIView
 
+- (void)setWithImage:(UIImage *)image;
+
+@property (copy,nonatomic) void (^hiddenView)();
+
 @end
